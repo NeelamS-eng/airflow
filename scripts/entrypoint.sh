@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-airflow initdb
+airflow db init
 
 exec airflow webserver
