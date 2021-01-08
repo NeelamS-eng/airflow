@@ -8,13 +8,14 @@ ENV SLUGIFY_USES_TEXT_UNIDECODE=yes
 
 ENV USER=airflow USER_ID=1001
 
-RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} --uid ${USER_ID} airflow 
+RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} --uid ${ } airflow 
 
 RUN pip install --no-cache-dir apache-airflow['crypto','kubernetes','postgres']==${AIRFLOW_VERSION}
 
 COPY ./scripts/entrypoint.sh /entrypoint.sh
 
-RUN chown -R airflow: ${AIRFLOW_HOME}
+#RUN chown -R airflow: ${AIRFLOW_HOME}
+RUN chmod -R 777 ${AIRFLOW_HOME}
 
 USER ${USER_ID}
 WORKDIR ${AIRFLOW_HOME}
