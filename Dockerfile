@@ -8,7 +8,7 @@ ENV SLUGIFY_USES_TEXT_UNIDECODE=yes
 
 ENV USER=airflow USER_ID=1001
 
-RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} --uid ${ } airflow 
+RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} --uid ${USER_ID} airflow 
 
 RUN pip install --no-cache-dir apache-airflow['crypto','kubernetes','postgres']==${AIRFLOW_VERSION}
 
