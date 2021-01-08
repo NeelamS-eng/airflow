@@ -6,6 +6,8 @@ ENV AIRFLOW_HOME=/usr/local/airflow
 
 ENV SLUGIFY_USES_TEXT_UNIDECODE=yes
 
+ENV AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgresql:5432/airflow
+
 ENV USER=airflow USER_ID=1001
 
 RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} --uid ${USER_ID} airflow 
